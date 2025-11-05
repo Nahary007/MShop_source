@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:projet/components/horizontal_listview.dart';
 import 'package:projet/components/products.dart';
+import 'package:projet/pages/cart.dart';
 
 void main() {
   runApp(
@@ -53,7 +54,11 @@ class _HomePageState extends State<HomePage> {
         title: Text('MShop'),
         actions: <Widget>[
           new IconButton(onPressed: () {}, icon: Icon(Icons.search, color: Colors.white)),
-          new IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart, color: Colors.white))
+          new IconButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => new Cart()));
+              },
+              icon: Icon(Icons.shopping_cart, color: Colors.white))
         ],
       ),
       drawer: new Drawer(
@@ -87,7 +92,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => new Cart()));
+              },
               child: ListTile(
                 title: Text("My orders"),
                 leading: Icon(Icons.shopping_basket),
